@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Colorful Boxes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #999;
+      display: inline-block;
+      margin: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .table {
+      display: table;
+      margin: 0 auto;
+    }
+
+    .row {
+      display: table-row;
+    }
+
+    .cell {
+      display: table-cell;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    select {
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 8px 15px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script>
+    var selectedColor = 'red';
+
+    function changeColor(boxId) {
+      var box = document.getElementById(boxId);
+      box.style.backgroundColor = selectedColor;
+    }
+
+    function resetColors() {
+      var boxes = document.querySelectorAll(".box");
+      for (var i = 0; i < boxes.length; i++) {
+        boxes[i].style.backgroundColor = '';
+      }
+    }
+
+    function selectColor(color) {
+      selectedColor = color;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Colorful Boxes</h1>
+
+    <div class="table">
+      <div class="row">
+        <div class="cell">
+          <div class="box" id="box1" onclick="changeColor('box1')"></div>
+        </div>
+        <div class="cell">
+          <div class="box" id="box2" onclick="changeColor('box2')"></div>
+        </div>
+        <div class="cell">
+          <div class="box" id="box3" onclick="changeColor('box3')"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="cell">
+          <div class="box" id="box4" onclick="changeColor('box4')"></div>
+        </div>
+        <div class="cell">
+          <div class="box" id="box5" onclick="changeColor('box5')"></div>
+        </div>
+        <div class="cell">
+          <div class="box" id="box6" onclick="changeColor('box6')"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="cell">
+          <div class="box" id="box7" onclick="changeColor('box7')"></div>
+        </div>
+        <div class="cell">
+          <div class="box" id="box8" onclick="changeColor('box8')"></div>
+        </div>
+        <div class="cell">
+          <div class="box" id="box9" onclick="changeColor('box9')"></div>
+        </div>
+      </div>
+    </div>
+
+    <br><br>
+
+    <label for="colorSelector">Brush Color:</label>
+    <select id="colorSelector" onchange="selectColor(this.value)">
+      <option value="red">Red</option>
+      <option value="blue">Blue</option>
+      <option value="green">Green</option>
+      <option value="yellow">Yellow</option>
+      <option value="orange">Orange</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="resetColors()">Reset</button>
+  </div>
+</body>
+</html>
